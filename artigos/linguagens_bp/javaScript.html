@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guia Completo de JavaScript</title>
+  <style>
+    :root {
+      --cor-principal: #000000;
+      --cor-secundaria: #f7df1e;
+      --cor-destaque: #ffe713;
+      --cor-clara: #f9f9f9;
+      --cor-escura: #1a1a1a;
+      --cor-texto: #333;
+      --cor-sombra: rgba(0, 0, 0, 0.1);
+      --transicao-padrao: 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://images.unsplash.com/photo-1551033406-611cf9a28f5b?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat fixed;
+      background-color: var(--cor-clara);
+      color: var(--cor-texto);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9));
+      color: white;
+      padding: 4rem 2rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: #ccc;
+    }
+
+    .navegacao ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 1rem 0;
+      margin: 0;
+    }
+
+    .navegacao a {
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .navegacao a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background-color: var(--cor-secundaria);
+      transition: width 0.3s ease;
+    }
+
+    .navegacao a:hover {
+      color: var(--cor-secundaria);
+    }
+
+    .navegacao a:hover::after {
+      width: 100%;
+    }
+
+    .conteudo {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+      background-color: rgba(255,255,255,0.95);
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    h2 {
+      color: var(--cor-principal);
+      margin-bottom: 1rem;
+    }
+
+    .codigo-bloco {
+      background-color: #1e1e1e;
+      color: #f7df1e;
+      padding: 1rem;
+      border-left: 5px solid var(--cor-secundaria);
+      font-family: Consolas, monospace;
+      white-space: pre-wrap;
+      border-radius: 8px;
+      margin-top: 0.5rem;
+    }
+
+    .exemplo {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 16px var(--cor-sombra);
+      margin-bottom: 2rem;
+    }
+
+    .exemplo h3 {
+      margin-top: 0;
+      color: var(--cor-secundaria);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 1rem auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px var(--cor-sombra);
+    }
+
+    footer {
+      background-color: var(--cor-escura);
+      color: #ccc;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.95rem;
+      position: relative;
+    }
+
+    .voltar-topo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--cor-secundaria);
+      color: #000;
+      padding: 0.8rem 1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: background 0.3s;
+    }
+
+    .voltar-topo:hover {
+      background: #ffe713;
+    }
+
+    .voltar-topo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--cor-secundaria);
+      color: #000;
+      padding: 0.8rem 1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: background 0.3s;
+    }
+
+    .voltar-topo:hover {
+      background: #ffe713;
+    }
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Guia Completo de JavaScript</h1>
+  <p>Explore tudo sobre a linguagem da web moderna — do início ao domínio avançado.</p>
+  <nav class="navegacao">
+    <ul>
+      <li><a href="#historia">História</a></li>
+      <li><a href="#sintaxe">Sintaxe</a></li>
+      <li><a href="#conceitos">Conceitos</a></li>
+      <li><a href="#exemplos">Exemplos</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#avancado">Avançado</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="conteudo">
+
+  <section id="historia">
+    <h2>História do JavaScript</h2>
+    <p>JavaScript foi criado por <strong>Brendan Eich</strong> em 1995 durante seu trabalho na Netscape. Originalmente desenvolvido em apenas 10 dias, a linguagem foi inicialmente chamada de "Mocha", depois "LiveScript" e, finalmente, JavaScript — um nome escolhido por razões de marketing para se associar à popularidade do Java, embora as duas linguagens sejam muito diferentes.</p>
+    <p>Em 1997, a linguagem foi padronizada pela ECMA International com o nome de <strong>ECMAScript</strong>. Desde então, JavaScript tem recebido atualizações regulares. Versões como ES6 (ECMAScript 2015) revolucionaram a linguagem, introduzindo recursos modernos como classes, arrow functions, promises e muito mais.</p>
+    <p>Hoje, JavaScript é a linguagem de programação mais utilizada no mundo, presente em praticamente todos os sites da web. Ela é executada no navegador, mas também pode ser usada no servidor com Node.js. É essencial para qualquer desenvolvedor web moderno.</p>
+    <img src="https://www.acidigital.com/imagespp/BrendanEich_AutorDarcyPadilla_CC-BY-SA-3_0.jpg?w=680&h=378">
+  </section>
+
+  <section id="sintaxe">
+    <h2>Sintaxe do JavaScript</h2>
+    <p>A sintaxe do JavaScript define como os programas devem ser escritos. É baseada em blocos de código delimitados por chaves (<code>{ }</code>), utiliza ponto e vírgula (opcional) e é sensível a maiúsculas e minúsculas.</p>
+    <ul>
+      <li><strong>Declaração de variáveis:</strong> com <code>var</code>, <code>let</code> ou <code>const</code></li>
+      <li><strong>Funções:</strong> declaradas com <code>function</code> ou usando <code>arrow functions</code></li>
+      <li><strong>Objetos e arrays:</strong> estruturas fundamentais</li>
+      <li><strong>Controle de fluxo:</strong> <code>if</code>, <code>else</code>, <code>switch</code>, <code>for</code>, <code>while</code></li>
+    </ul>
+  </section>
+
+  <section id="conceitos">
+    <h2>Conceitos Fundamentais</h2>
+    <p>JavaScript é uma linguagem baseada em protótipos, orientada a objetos e dinâmica. Abaixo estão alguns dos conceitos mais importantes:</p>
+    <ul>
+      <li><strong>DOM (Document Object Model):</strong> Representa a estrutura de uma página HTML. O JavaScript pode interagir com o DOM para modificar a página em tempo real.</li>
+      <li><strong>Eventos:</strong> Permitem reagir a ações do usuário (como cliques, digitação, etc.).</li>
+      <li><strong>Funções de ordem superior:</strong> Aceitam outras funções como argumento ou retornam funções.</li>
+      <li><strong>Escopos:</strong> Escopo global e local, incluindo closures (funções que "lembram" o escopo onde foram criadas).</li>
+      <li><strong>Assincronismo:</strong> Usado com <code>setTimeout</code>, <code>Promises</code> e <code>async/await</code>.</li>
+    </ul>
+  </section>
+
+  <section id="exemplos">
+    <h2>Exemplos de Código em JavaScript</h2>
+
+    <div class="exemplo">
+      <h3>1. Exibir mensagem no console</h3>
+      <p>Usamos <code>console.log()</code> para imprimir informações no console do navegador.</p>
+      <div class="codigo-bloco">
+console.log("Olá, mundo!");
+      </div>
+    </div>
+
+    <div class="exemplo">
+      <h3>2. Declaração de variáveis</h3>
+      <p><code>let</code> e <code>const</code> são formas modernas de declarar variáveis.</p>
+      <div class="codigo-bloco">
+let nome = "Maria";
+const idade = 25;
+console.log(nome, idade);
+      </div>
+    </div>
+
+    <div class="exemplo">
+      <h3>3. Função tradicional e arrow function</h3>
+      <p>As funções são blocos reutilizáveis de código.</p>
+      <div class="codigo-bloco">
+function saudacao(nome) {
+return "Olá " + nome;
+}
+
+const saudacaoArrow = nome => "Olá " + nome;
+
+console.log(saudacao("João"));
+console.log(saudacaoArrow("Ana"));
+      </div>
+    </div>
+
+    <div class="exemplo">
+      <h3>4. Manipulação do DOM</h3>
+      <p>Alterar o conteúdo de uma página usando JavaScript.</p>
+      <div class="codigo-bloco">
+// HTML: &lt;h1 id="titulo"&gt;&lt;/h1&gt;
+document.getElementById("titulo").innerText = "Novo título!";
+      </div>
+    </div>
+
+    <div class="exemplo">
+      <h3>5. Laços e condicionais</h3>
+      <p>Estruturas para repetição e decisões lógicas.</p>
+      <div class="codigo-bloco">
+for (let i = 1; i <= 5; i++) {
+if (i % 2 === 0) {
+  console.log(i + " é par");
+} else {
+  console.log(i + " é ímpar");
+}
+}
+      </div>
+    </div>
+
+    <div class="exemplo">
+      <h3>6. Promises e Async/Await</h3>
+      <p>Controle de código assíncrono moderno em JavaScript.</p>
+      <div class="codigo-bloco">
+function esperar() {
+return new Promise(resolve => {
+  setTimeout(() => resolve("Concluído!"), 2000);
+});
+}
+
+async function executar() {
+console.log("Esperando...");
+let resultado = await esperar();
+console.log(resultado);
+}
+
+executar();
+      </div>
+    </div>
+  </section>
+
+  <section id="roadmap">
+    <h2>Roadmap para Aprender JavaScript</h2>
+    <p>Aprender JavaScript de forma eficiente requer seguir uma ordem lógica de tópicos. Veja um guia progressivo:</p>
+    <ol>
+      <li><strong>Fundamentos:</strong> variáveis, operadores, estruturas de controle, funções, escopo, arrays e objetos</li>
+      <li><strong>Manipulação do DOM:</strong> como interagir com o HTML e CSS usando JavaScript</li>
+      <li><strong>Eventos:</strong> responder a ações do usuário como cliques, teclas e movimentos do mouse</li>
+      <li><strong>Funções Avançadas:</strong> funções anônimas, callbacks, closures, funções de ordem superior</li>
+      <li><strong>Assincronismo:</strong> Promises, async/await, requisições HTTP com fetch()</li>
+      <li><strong>ES6+:</strong> arrow functions, let/const, destructuring, classes, módulos</li>
+      <li><strong>APIs do navegador:</strong> Storage, Geolocation, Canvas, Web Audio API</li>
+      <li><strong>Node.js:</strong> backend com JavaScript, npm, módulos, Express.js</li>
+      <li><strong>Frameworks Front-end:</strong> React, Vue, Angular (opcional, mas poderoso)</li>
+      <li><strong>Boas práticas:</strong> testes, debugging, versionamento (Git), padrões de projeto</li>
+    </ol>
+  </section>
+
+  <section id="avancado">
+    <h2>Tópicos Avançados</h2>
+    <p>Ao dominar os fundamentos, você pode se aprofundar nos aspectos mais complexos e poderosos da linguagem:</p>
+    <ul>
+      <li><strong>Programação funcional:</strong> uso de <code>map</code>, <code>filter</code>, <code>reduce</code> e imutabilidade</li>
+      <li><strong>Single Page Applications (SPAs):</strong> criar interfaces dinâmicas com React, Vue ou Angular</li>
+      <li><strong>Módulos ES:</strong> <code>import/export</code>, organização de arquivos e reuso de código</li>
+      <li><strong>Web Components:</strong> encapsulamento de HTML, CSS e JS em componentes reutilizáveis</li>
+      <li><strong>WebSockets:</strong> comunicação em tempo real com servidores</li>
+      <li><strong>Service Workers e PWA:</strong> transformar seu site em uma app instalável offline</li>
+      <li><strong>TypeScript:</strong> tipagem estática opcional para projetos JavaScript maiores</li>
+    </ul>
+  </section>
+
+  <section id="conclusao">
+    <h2>Conclusão</h2>
+    <p>JavaScript é uma linguagem essencial para qualquer desenvolvedor web. Desde simples scripts até aplicações web completas, ela permite criar experiências ricas e interativas.</p>
+    <p>Com um grande ecossistema e constante evolução, aprender JavaScript é abrir portas para o desenvolvimento front-end, back-end, mobile e até inteligência artificial com bibliotecas como TensorFlow.js.</p>
+    <p>Continue praticando, construindo projetos reais e explorando frameworks modernos para dominar essa poderosa linguagem!</p>
+  </section>
+
+     
+</div>
+
+<footer>
+  © 2025 - Guia de Java para Desenvolvedores. Criado por Luis Felipe.
+</footer>
+
+<button class="voltar-topo" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">Topo ↑</button>
+
+</body>

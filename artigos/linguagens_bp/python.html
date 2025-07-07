@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curso Completo de Python</title>
+  <style>
+    :root {
+      --cor-principal: #306998;
+      --cor-secundaria: #ffd43b;
+      --cor-destaque: #ffe873;
+      --cor-clara: #f9f9f9;
+      --cor-escura: #1a1a1a;
+      --cor-texto: #333;
+      --cor-sombra: rgba(0, 0, 0, 0.1);
+      --transicao-padrao: 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://images.unsplash.com/photo-1537432376769-00a4c4a5cb8c?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat fixed;
+      background-color: var(--cor-clara);
+      color: var(--cor-texto);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9));
+      color: white;
+      padding: 4rem 2rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: #ccc;
+    }
+
+    .navegacao ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 1rem 0;
+      margin: 0;
+    }
+
+    .navegacao a {
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .navegacao a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background-color: #306998;
+      transition: width 0.3s ease;
+    }
+
+    .navegacao a:hover {
+      color: #306998;
+    }
+
+    .navegacao a:hover::after {
+      width: 100%;
+    }
+
+    .conteudo {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+      background-color: rgba(255,255,255,0.95);
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    h2 {
+      color: var(--cor-principal);
+      margin-bottom: 1rem;
+    }
+
+    .codigo-bloco {
+      background-color: #1e1e1e;
+      color: #ffd43b;
+      padding: 1rem;
+      border-left: 5px solid var(--cor-secundaria);
+      font-family: Consolas, monospace;
+      white-space: pre-wrap;
+      border-radius: 8px;
+      margin-top: 0.5rem;
+    }
+
+    .exemplo {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 16px var(--cor-sombra);
+      margin-bottom: 2rem;
+    }
+
+    .exemplo h3 {
+      margin-top: 0;
+      color: var(--cor-secundaria);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 1rem auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px var(--cor-sombra);
+    }
+
+    footer {
+      background-color: var(--cor-escura);
+      color: #ccc;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.95rem;
+      position: relative;
+    }
+
+    .voltar-topo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--cor-secundaria);
+      color: #000;
+      padding: 0.8rem 1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: background 0.3s;
+    }
+
+    .voltar-topo:hover {
+      background: var(--cor-destaque);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Curso Completo de Python</h1>
+    <p>Aprenda a linguagem mais popular do mundo desde os primeiros passos até os conceitos avançados.</p>
+    <nav class="navegacao">
+      <ul>
+        <li><a href="#historia">História</a></li>
+        <li><a href="#sintaxe">Sintaxe</a></li>
+        <li><a href="#conceitos">Conceitos</a></li>
+        <li><a href="#exemplos">Exemplos</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#avancado">Avançado</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="conteudo">
+    <section id="historia">
+      <h2>História do Python</h2>
+      <p>Python é uma linguagem de programação de alto nível criada por <strong>Guido van Rossum</strong> e lançada oficialmente em 1991. Seu desenvolvimento teve início no final dos anos 1980, nos Países Baixos, como um projeto de hobby durante o Natal, enquanto Guido trabalhava no Centrum Wiskunde & Informatica (CWI), em Amsterdã. O objetivo inicial era criar uma linguagem interpretada, de fácil leitura, com sintaxe clara e simples, baseada na linguagem ABC, mas corrigindo algumas de suas limitações.</p>
+
+      <p>O nome "Python" não tem relação com o animal. Guido era fã do grupo britânico de comédia "Monty Python", e escolheu o nome justamente por querer algo curto, único e um pouco misterioso. Isso reflete o espírito da linguagem: divertida, acessível e poderosa.</p>
+
+      <p>Ao longo dos anos, Python cresceu rapidamente em popularidade, especialmente por sua simplicidade e versatilidade. A linguagem foi adotada por diversas comunidades — desde cientistas de dados até desenvolvedores web, engenheiros de software, pesquisadores de inteligência artificial e professores.</p>
+
+      <p>A grande virada ocorreu com o lançamento da versão <strong>Python 2.0</strong> no ano 2000, que trouxe importantes funcionalidades como coleta de lixo automática e suporte completo a Unicode. No entanto, ao longo do tempo, ficou evidente a necessidade de uma nova versão com melhorias estruturais. Assim nasceu o <strong>Python 3</strong>, lançado em 2008, que quebrou compatibilidade com versões anteriores, mas estabeleceu bases sólidas para o futuro.</p>
+
+      <p>Hoje, Python é considerado uma das linguagens mais importantes do mundo. Está presente em projetos de grande escala como YouTube, Instagram, Spotify, Google, NASA, e até mesmo em automação de sistemas operacionais e robótica.</p>
+
+      <img src="https://pbs.twimg.com/profile_images/424495004/GuidoAvatar_400x400.jpg" alt="Guido van Rossum - Criador do Python">
+    </section>
+
+    <!-- As outras seções (Sintaxe, Conceitos, Exemplos, Roadmap, Avançado) serão adicionadas nas próximas partes -->
+
+    <section id="sintaxe">
+  <h2>Sintaxe do Python</h2>
+  <p>
+    A sintaxe do Python é conhecida por ser extremamente clara, objetiva e próxima da linguagem humana.
+    Essa simplicidade é intencional: o Python foi criado para ser fácil de ler e escrever, mesmo para quem nunca programou antes.
+    Nesta seção, vamos entender os principais elementos da sintaxe da linguagem.
+  </p>
+
+  <div class="exemplo">
+    <h3>1. Indentação obrigatória</h3>
+    <p>
+      Diferente de outras linguagens como C, Java ou JavaScript, o Python **não usa chaves `{}`** para delimitar blocos de código.
+      Em vez disso, ele usa a **indentação** (espaço/tabulação) para definir o início e fim de estruturas como condicionais, laços e funções.
+    </p>
+    <div class="codigo-bloco">
+def saudacao():
+    print("Olá!")
+    print("Bem-vindo ao curso de Python")
+
+saudacao()
+    </div>
+    <p>
+      Se você remover a indentação ou colocar de forma errada, o Python exibirá um erro de sintaxe.
+    </p>
+  </div>
+
+  <div class="exemplo">
+    <h3>2. Comentários</h3>
+    <p>
+      Comentários são usados para explicar partes do código e são ignorados pelo interpretador.
+      No Python, usamos a cerquilha (<code>#</code>) para escrever comentários de uma linha.
+    </p>
+    <div class="codigo-bloco">
+# Este é um comentário
+print("Linha executada")  # Comentário ao lado
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>3. Variáveis e Tipos</h3>
+    <p>
+      Em Python, não é necessário declarar o tipo da variável.
+      O próprio interpretador entende o tipo com base no valor atribuído.
+    </p>
+    <div class="codigo-bloco">
+nome = "João"       # String
+idade = 25          # Inteiro
+altura = 1.75       # Float (decimal)
+ativo = True        # Booleano
+    </div>
+    <p>
+      É possível verificar o tipo de uma variável usando a função <code>type()</code>:
+    </p>
+    <div class="codigo-bloco">
+print(type(nome))   # <class 'str'>
+print(type(idade))  # <class 'int'>
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>4. Entrada de dados</h3>
+    <p>
+      Para capturar valores do usuário, usamos a função <code>input()</code>. Ela sempre retorna uma string.
+    </p>
+    <div class="codigo-bloco">
+nome = input("Digite seu nome: ")
+print("Olá,", nome)
+    </div>
+    <p>
+      Se você precisar de um número, é necessário converter:
+    </p>
+    <div class="codigo-bloco">
+idade = int(input("Digite sua idade: "))
+print("Você tem", idade, "anos")
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>5. Operadores</h3>
+    <p>
+      Python possui todos os operadores aritméticos, relacionais e lógicos esperados:
+    </p>
+    <div class="codigo-bloco">
+# Aritméticos: + - * / // % **
+x = 10
+y = 3
+print(x + y)  # Soma
+print(x / y)  # Divisão
+print(x // y) # Divisão inteira
+print(x ** y) # Potência
+
+# Relacionais: > < >= <= == !=
+print(x > y)  # True
+
+# Lógicos: and, or, not
+print(x > 5 and y < 5)  # True
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>6. Condicionais</h3>
+    <p>
+      As estruturas condicionais em Python usam <code>if</code>, <code>elif</code> (equivalente a else if) e <code>else</code>.
+    </p>
+    <div class="codigo-bloco">
+idade = 18
+
+if idade >= 18:
+    print("Você é maior de idade")
+elif idade >= 16:
+    print("Você pode votar")
+else:
+    print("Você é menor de idade")
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>7. Laços de repetição</h3>
+    <p>
+      Python possui dois principais tipos de laços: <code>for</code> e <code>while</code>.
+    </p>
+    <div class="codigo-bloco">
+# for com range()
+for i in range(5):
+    print(i)
+
+# while
+contador = 0
+while contador < 5:
+    print(contador)
+    contador += 1
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>8. Funções</h3>
+    <p>
+      Funções são blocos reutilizáveis de código. Em Python, definimos com <code>def</code>.
+    </p>
+    <div class="codigo-bloco">
+def saudacao(nome):
+    print("Olá,", nome)
+
+saudacao("Maria")
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>9. Listas, Tuplas e Dicionários</h3>
+    <p>
+      Python possui diversas estruturas de dados nativas.
+    </p>
+    <div class="codigo-bloco">
+# Lista (mutável)
+frutas = ["maçã", "banana", "laranja"]
+frutas.append("uva")
+
+# Tupla (imutável)
+cores = ("azul", "amarelo", "verde")
+
+# Dicionário (chave: valor)
+pessoa = {"nome": "Ana", "idade": 30}
+print(pessoa["nome"])
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>10. Identação em funções, loops e condições</h3>
+    <p>
+      Nunca se esqueça: o Python depende da indentação para entender o que está dentro ou fora de blocos.
+    </p>
+    <div class="codigo-bloco">
+def exemplo():
+    if True:
+        print("Está dentro do if")
+    print("Está dentro da função")
+
+exemplo()
+    </div>
+  </div>
+
+</section>
+  
+    <section id="conceitos">
+  <h2>Conceitos Fundamentais do Python</h2>
+  <p>
+    Agora que você conhece a sintaxe básica, é hora de explorar os **conceitos essenciais** que definem a linguagem Python. 
+    Esses conceitos formam a base para qualquer programa real e vão te preparar para entender como o Python funciona por dentro.
+  </p>
+
+  <div class="exemplo">
+    <h3>1. Tipagem Dinâmica e Forte</h3>
+    <p>
+      Python é uma linguagem de <strong>tipagem dinâmica</strong>, o que significa que você não precisa declarar o tipo da variável — 
+      o Python detecta automaticamente. No entanto, também é uma linguagem de <strong>tipagem forte</strong>, ou seja, 
+      ele não realiza conversões de tipo de forma implícita.
+    </p>
+    <div class="codigo-bloco">
+# Tipagem dinâmica
+idade = 20
+idade = "vinte anos"  # Isso é permitido, pois o tipo foi mudado dinamicamente
+
+# Tipagem forte
+print("Idade: " + 20)  # Erro! Não é possível concatenar str com int diretamente
+    </div>
+    <p>
+      Para concatenar, é necessário converter o número:
+    </p>
+    <div class="codigo-bloco">
+print("Idade: " + str(20))  # Correto
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>2. Escopo de Variáveis</h3>
+    <p>
+      O <strong>escopo</strong> define onde uma variável pode ser usada. Em Python, existem dois escopos principais:
+    </p>
+    <ul>
+      <li><strong>Local:</strong> dentro de funções.</li>
+      <li><strong>Global:</strong> fora de funções.</li>
+    </ul>
+    <div class="codigo-bloco">
+x = 10  # escopo global
+
+def funcao():
+    x = 5  # escopo local
+    print("Valor local de x:", x)
+
+funcao()
+print("Valor global de x:", x)
+    </div>
+    <p>
+      Se quiser modificar uma variável global dentro de uma função, use a palavra-chave <code>global</code>:
+    </p>
+    <div class="codigo-bloco">
+contador = 0
+
+def incrementar():
+    global contador
+    contador += 1
+
+incrementar()
+print(contador)  # 1
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>3. Funções e Argumentos</h3>
+    <p>
+      Python permite criar funções com argumentos padrões, posicionais, nomeados e variáveis.
+    </p>
+    <div class="codigo-bloco">
+def saudacao(nome="visitante"):
+    print("Olá,", nome)
+
+saudacao("Ana")
+saudacao()
+    </div>
+    <p>
+      Também podemos usar <code>*args</code> para argumentos variáveis e <code>**kwargs</code> para argumentos nomeados:
+    </p>
+    <div class="codigo-bloco">
+def somar(*numeros):
+    return sum(numeros)
+
+print(somar(1, 2, 3))  # 6
+
+def mostrar_info(**dados):
+    for chave, valor in dados.items():
+        print(f"{chave}: {valor}")
+
+mostrar_info(nome="Carlos", idade=28)
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>4. Programação Orientada a Objetos (POO)</h3>
+    <p>
+      Python é uma linguagem orientada a objetos. Isso significa que tudo em Python é um objeto — strings, listas, funções, até mesmo tipos.
+    </p>
+    <p>
+      A Programação Orientada a Objetos (POO) é baseada em quatro pilares:
+    </p>
+    <ul>
+      <li><strong>Encapsulamento</strong>: esconder detalhes internos de uma classe.</li>
+      <li><strong>Herança</strong>: reutilizar código de outras classes.</li>
+      <li><strong>Polimorfismo</strong>: comportamentos diferentes com o mesmo nome.</li>
+      <li><strong>Abstração</strong>: definir o que importa, escondendo complexidades.</li>
+    </ul>
+    <p>Veja um exemplo básico:</p>
+    <div class="codigo-bloco">
+class Pessoa:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+    def apresentar(self):
+        print(f"Olá, meu nome é {self.nome} e tenho {self.idade} anos.")
+
+class Estudante(Pessoa):
+    def __init__(self, nome, idade, curso):
+        super().__init__(nome, idade)
+        self.curso = curso
+
+    def apresentar(self):
+        print(f"Sou {self.nome}, estudo {self.curso}.")
+
+joao = Estudante("João", 20, "Python")
+joao.apresentar()
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>5. Modularização e Imports</h3>
+    <p>
+      Em Python, podemos dividir o código em múltiplos arquivos (módulos) e reutilizá-los usando <code>import</code>.
+    </p>
+    <div class="codigo-bloco">
+# Arquivo: saudacoes.py
+def ola():
+    print("Olá!")
+
+# Arquivo principal
+import saudacoes
+saudacoes.ola()
+    </div>
+    <p>
+      Também podemos importar apenas uma função:
+    </p>
+    <div class="codigo-bloco">
+from saudacoes import ola
+ola()
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>6. Manipulação de Arquivos</h3>
+    <p>
+      Python possui recursos poderosos para ler e escrever arquivos:
+    </p>
+    <div class="codigo-bloco">
+# Escrevendo em um arquivo
+with open("dados.txt", "w") as arquivo:
+    arquivo.write("Curso de Python\n")
+
+# Lendo o arquivo
+with open("dados.txt", "r") as arquivo:
+    conteudo = arquivo.read()
+    print(conteudo)
+    </div>
+    <p>
+      A função <code>with</code> garante que o arquivo será fechado automaticamente.
+    </p>
+  </div>
+
+  <div class="exemplo">
+    <h3>7. Tratamento de Exceções</h3>
+    <p>
+      Para evitar que erros quebrem seu programa, usamos <code>try</code>, <code>except</code> e, opcionalmente, <code>finally</code>.
+    </p>
+    <div class="codigo-bloco">
+try:
+    numero = int(input("Digite um número: "))
+    print("Dobro:", numero * 2)
+except ValueError:
+    print("Erro: você precisa digitar um número inteiro!")
+finally:
+    print("Fim do programa")
+    </div>
+  </div>
+
+</section>
+<section id="exemplos">
+  <h2>Exemplos Práticos em Python</h2>
+  <p>
+    A melhor forma de aprender programação é <strong>colocar a mão no código</strong>. 
+    A seguir, você encontrará exemplos simples e extremamente didáticos, com explicações detalhadas. 
+    Copie, execute, experimente e modifique!
+  </p>
+
+  <div class="exemplo">
+    <h3>1. Calculadora de IMC</h3>
+    <p>
+      O Índice de Massa Corporal (IMC) é uma fórmula usada para avaliar se a pessoa está no peso ideal.
+      A fórmula é: <code>IMC = peso / altura²</code>.
+    </p>
+    <div class="codigo-bloco">
+peso = float(input("Digite seu peso (kg): "))
+altura = float(input("Digite sua altura (m): "))
+
+imc = peso / (altura ** 2)
+
+print("Seu IMC é:", round(imc, 2))
+
+if imc < 18.5:
+    print("Abaixo do peso")
+elif imc < 25:
+    print("Peso ideal")
+elif imc < 30:
+    print("Sobrepeso")
+else:
+    print("Obesidade")
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>2. Conversor de Temperatura</h3>
+    <p>
+      Um conversor que transforma graus Celsius em Fahrenheit usando a fórmula: <code>F = C × 1.8 + 32</code>.
+    </p>
+    <div class="codigo-bloco">
+celsius = float(input("Digite a temperatura em Celsius: "))
+fahrenheit = celsius * 1.8 + 32
+print(f"{celsius}°C equivalem a {fahrenheit}°F")
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>3. Verificador de Números Primos</h3>
+    <p>
+      Um número primo é divisível apenas por 1 e por ele mesmo.
+      Este programa verifica se o número digitado é primo.
+    </p>
+    <div class="codigo-bloco">
+numero = int(input("Digite um número: "))
+eh_primo = True
+
+if numero < 2:
+    eh_primo = False
+else:
+    for i in range(2, int(numero ** 0.5) + 1):
+        if numero % i == 0:
+            eh_primo = False
+            break
+
+if eh_primo:
+    print("É primo!")
+else:
+    print("Não é primo.")
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>4. Gerador de Senhas Aleatórias</h3>
+    <p>
+      Este programa usa a biblioteca <code>random</code> para gerar uma senha segura com letras, números e símbolos.
+    </p>
+    <div class="codigo-bloco">
+import random
+import string
+
+tamanho = int(input("Digite o tamanho da senha: "))
+caracteres = string.ascii_letters + string.digits + string.punctuation
+
+senha = ''.join(random.choice(caracteres) for i in range(tamanho))
+print("Senha gerada:", senha)
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>5. Jogo de Adivinhação</h3>
+    <p>
+      O Python pode ser divertido! Este jogo escolhe um número aleatório entre 1 e 100 e o jogador tenta adivinhar.
+    </p>
+    <div class="codigo-bloco">
+import random
+
+numero_secreto = random.randint(1, 100)
+tentativas = 0
+
+print("Adivinhe o número entre 1 e 100")
+
+while True:
+    chute = int(input("Seu palpite: "))
+    tentativas += 1
+
+    if chute < numero_secreto:
+        print("Muito baixo!")
+    elif chute > numero_secreto:
+        print("Muito alto!")
+    else:
+        print(f"Parabéns! Você acertou em {tentativas} tentativas.")
+        break
+    </div>
+
+  </div>
+
+</section>
+
+<section id="roadmap">
+  <h2>Roadmap de Aprendizado em Python</h2>
+  <p>Aprender Python é uma jornada que pode ser trilhada por qualquer pessoa — mesmo sem conhecimento prévio em programação. Abaixo, você verá um roadmap visual com as principais etapas, seguido de uma explicação detalhada do que estudar em cada fase.</p>
+
+  <img src="img/ChatGPT Image 2 de jul. de 2025, 16_15_31.png" alt="Roadmap de Python para Iniciantes até Avançado">
+
+  <div class="exemplo">
+    <h3>🔰 Fase 1 – Fundamentos da Programação</h3>
+    <p>Nessa etapa inicial, o aluno aprenderá os conceitos mais básicos, que servem de alicerce para qualquer linguagem de programação, com foco em Python:</p>
+    <ul>
+      <li><strong>Instalação do Python:</strong> Instale o Python pelo site oficial e use um editor de código como VS Code ou Thonny.</li>
+      <li><strong>Sintaxe Básica:</strong> Aprenda a indentação, o uso de `print()`, comentários com `#` e a estrutura de um script.</li>
+      <li><strong>Tipos de Dados:</strong> Números inteiros (`int`), números de ponto flutuante (`float`), texto (`str`), booleanos (`bool`).</li>
+      <li><strong>Variáveis:</strong> Como criar e nomear variáveis corretamente.</li>
+      <li><strong>Operadores:</strong> Aritméticos (`+`, `-`, `*`, `/`), relacionais (`==`, `!=`, `>`, `<`) e lógicos (`and`, `or`, `not`).</li>
+      <li><strong>Entrada e saída:</strong> Funções `input()` e `print()`.</li>
+    </ul>
+  </div>
+
+  <div class="exemplo">
+    <h3>🧠 Fase 2 – Controle de Fluxo</h3>
+    <p>Aqui o foco está em ensinar o programa a tomar decisões e repetir ações:</p>
+    <ul>
+      <li><strong>Condicionais:</strong> Uso de `if`, `elif` e `else` para decisões.</li>
+      <li><strong>Laços de Repetição:</strong> `for` para repetições baseadas em sequência e `while` para repetições condicionais.</li>
+      <li><strong>Função range():</strong> Muito usada com `for` para contar.</li>
+      <li><strong>Break e Continue:</strong> Controlam o fluxo de loops.</li>
+    </ul>
+  </div>
+
+  <div class="exemplo">
+    <h3>📦 Fase 3 – Estruturas de Dados</h3>
+    <p>Agora é hora de aprender como armazenar e organizar conjuntos de informações:</p>
+    <ul>
+      <li><strong>Listas:</strong> Sequência mutável de elementos. Métodos: `append()`, `remove()`, `sort()` etc.</li>
+      <li><strong>Tuplas:</strong> Sequência imutável.</li>
+      <li><strong>Dicionários:</strong> Pares de chave:valor. Muito usados para representar objetos.</li>
+      <li><strong>Conjuntos (sets):</strong> Coleções não ordenadas de valores únicos.</li>
+    </ul>
+  </div>
+
+  <div class="exemplo">
+    <h3>🔁 Fase 4 – Funções e Módulos</h3>
+    <p>Funções permitem dividir o código em partes reutilizáveis, melhorando organização e legibilidade:</p>
+    <ul>
+      <li><strong>Definindo funções:</strong> Usando `def nome_da_funcao():`.</li>
+      <li><strong>Parâmetros e argumentos:</strong> Entrada de dados nas funções.</li>
+      <li><strong>Escopo de variáveis:</strong> Entender o que é local e global.</li>
+      <li><strong>Importação de módulos:</strong> `import math`, `random`, `datetime`, `os` etc.</li>
+      <li><strong>Criação de módulos:</strong> Como criar seus próprios arquivos `.py` reutilizáveis.</li>
+    </ul>
+  </div>
+
+  <div class="exemplo">
+    <h3>🗂️ Fase 5 – Programação Orientada a Objetos (POO)</h3>
+    <p>Essencial para desenvolver sistemas grandes e organizados:</p>
+    <ul>
+      <li><strong>Classes e Objetos:</strong> Como representar entidades do mundo real.</li>
+      <li><strong>Atributos e Métodos:</strong> Características e ações dos objetos.</li>
+      <li><strong>Herança:</strong> Reutilização de código entre classes.</li>
+      <li><strong>Encapsulamento:</strong> Proteção e organização dos dados.</li>
+      <li><strong>Polimorfismo:</strong> Capacidade de um método agir de diferentes formas.</li>
+    </ul>
+  </div>
+
+  <div class="exemplo">
+    <h3>🌐 Fase 6 – Aplicações Práticas</h3>
+    <p>Hora de aplicar tudo em projetos reais:</p>
+    <ul>
+      <li><strong>Automação com Python:</strong> Automação de tarefas com bibliotecas como `pyautogui`, `openpyxl`, `os`, `shutil`, `smtplib` (e-mails).</li>
+      <li><strong>Web Scraping:</strong> Coleta de dados da web com `requests`, `BeautifulSoup`, `Selenium`.</li>
+      <li><strong>APIs:</strong> Consumo e criação de APIs REST com `Flask` ou `FastAPI`.</li>
+      <li><strong>Interface Gráfica:</strong> Criando apps com `Tkinter` ou `PyQt`.</li>
+    </ul>
+  </div>
+
+  <div class="exemplo">
+    <h3>🚀 Fase 7 – Avançado e Especializações</h3>
+    <p>Depois de dominar o básico e a lógica, você pode se especializar em uma das áreas abaixo:</p>
+    <ul>
+      <li><strong>Desenvolvimento Web:</strong> Com frameworks como <code>Django</code> e <code>Flask</code>.</li>
+      <li><strong>Ciência de Dados:</strong> Com <code>Pandas</code>, <code>Numpy</code>, <code>Matplotlib</code>, <code>Seaborn</code>.</li>
+      <li><strong>Machine Learning:</strong> Com <code>Scikit-learn</code>, <code>TensorFlow</code>, <code>Keras</code>.</li>
+      <li><strong>Inteligência Artificial:</strong> Redes neurais, NLP, visão computacional.</li>
+      <li><strong>Automação Avançada:</strong> Bots, tarefas em servidores, scripts complexos.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="avancado">
+  <h2>Conteúdo Avançado de Python</h2>
+  <p>Depois de dominar os fundamentos, estruturas de dados, POO e alguns projetos, você pode se aprofundar em recursos mais avançados do Python. Essa etapa vai te preparar para escrever códigos mais performáticos, legíveis, seguros e poderosos.</p>
+
+  <div class="exemplo">
+    <h3>🧩 1. Geradores e Iteradores</h3>
+    <p>Python permite criar funções que geram valores sob demanda, economizando memória.</p>
+    <ul>
+      <li><strong>Iteradores:</strong> Objetos que implementam os métodos <code>__iter__()</code> e <code>__next__()</code>.</li>
+      <li><strong>Funções Geradoras:</strong> Criadas com <code>yield</code>. Exemplo:</li>
+    </ul>
+    <div class="codigo-bloco">
+def contador():
+    for i in range(5):
+        yield i
+
+for numero in contador():
+    print(numero)
+    </div>
+    <p>Esse código gera os valores de 0 a 4 um por um, sem carregar todos de uma vez na memória.</p>
+  </div>
+
+  <div class="exemplo">
+    <h3>🔄 2. Compreensões de Lista, Dicionário e Conjunto</h3>
+    <p>São formas elegantes e compactas de criar novas listas, dicionários ou conjuntos a partir de iteráveis.</p>
+    <div class="codigo-bloco">
+# Lista tradicional
+quadrados = []
+for i in range(10):
+    quadrados.append(i**2)
+
+# Lista por compreensão
+quadrados = [i**2 for i in range(10)]
+
+# Dicionário por compreensão
+dicionario = {x: x**2 for x in range(5)}
+
+# Conjunto por compreensão
+conjunto = {x for x in range(10) if x % 2 == 0}
+    </div>
+    <p>Essas técnicas tornam o código mais limpo e eficiente.</p>
+  </div>
+
+  <div class="exemplo">
+    <h3>🧵 3. Programação Assíncrona (async/await)</h3>
+    <p>Útil para escrever programas que lidam com tarefas simultâneas, como chamadas de rede ou I/O intensivo.</p>
+    <div class="codigo-bloco">
+import asyncio
+
+async def saudacao():
+    print("Olá!")
+    await asyncio.sleep(1)
+    print("Depois de 1 segundo")
+
+asyncio.run(saudacao())
+    </div>
+    <p>A execução não bloqueia enquanto espera, permitindo tarefas paralelas sem usar múltiplas threads.</p>
+  </div>
+
+  <div class="exemplo">
+    <h3>📦 4. Decoradores</h3>
+    <p>Funções que modificam o comportamento de outras funções, muito usados para adicionar funcionalidades (como autenticação, logs, cache).</p>
+    <div class="codigo-bloco">
+def logar(funcao):
+    def wrapper():
+        print("Função sendo executada...")
+        funcao()
+        print("Função finalizada.")
+    return wrapper
+
+@logar
+def saudacao():
+    print("Olá, Python!")
+
+saudacao()
+    </div>
+    <p>O símbolo <code>@</code> aplica o decorador à função abaixo dele.</p>
+  </div>
+
+  <div class="exemplo">
+    <h3>🔐 5. Tratamento Avançado de Exceções</h3>
+    <p>Python permite capturar exceções específicas, usar <code>else</code> e <code>finally</code>, e criar exceções personalizadas:</p>
+    <div class="codigo-bloco">
+try:
+    numero = int(input("Digite um número: "))
+except ValueError:
+    print("Isso não é um número válido.")
+else:
+    print(f"Você digitou {numero}")
+finally:
+    print("Execução finalizada.")
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>🏗️ 6. Manipulação Avançada de Arquivos</h3>
+    <p>Além de <code>open()</code>, Python possui suporte a arquivos binários, leitura de CSV, JSON e até banco de dados:</p>
+    <ul>
+      <li><strong>CSV:</strong> <code>import csv</code></li>
+      <li><strong>JSON:</strong> <code>import json</code></li>
+      <li><strong>Banco SQLite:</strong> <code>import sqlite3</code></li>
+    </ul>
+    <div class="codigo-bloco">
+import json
+
+dados = {'nome': 'Ana', 'idade': 30}
+with open('arquivo.json', 'w') as arquivo:
+    json.dump(dados, arquivo)
+    </div>
+  </div>
+
+  <div class="exemplo">
+    <h3>📊 7. Bibliotecas Científicas e de Dados</h3>
+    <p>Se você pretende seguir carreira em análise de dados, ciência de dados ou machine learning, aprenda essas:</p>
+    <ul>
+      <li><strong>NumPy:</strong> Matrizes e operações matemáticas rápidas.</li>
+      <li><strong>Pandas:</strong> Manipulação de tabelas, datasets e séries temporais.</li>
+      <li><strong>Matplotlib / Seaborn:</strong> Visualização de dados com gráficos.</li>
+    </ul>
+  </div>
+
+  <div class="exemplo">
+    <h3>🧠 8. Machine Learning com Python</h3>
+    <p>Bibliotecas para criar algoritmos inteligentes, treinar modelos e fazer previsões:</p>
+    <ul>
+      <li><strong>Scikit-learn:</strong> Classificação, regressão, clustering.</li>
+      <li><strong>TensorFlow / Keras:</strong> Redes neurais profundas.</li>
+      <li><strong>OpenCV:</strong> Visão computacional com Python.</li>
+    </ul>
+  </div>
+
+  <div class="exemplo">
+    <h3>🕸️ 9. Desenvolvimento Web com Python</h3>
+    <p>Python também é excelente para criar sites, APIs e aplicações web:</p>
+    <ul>
+      <li><strong>Flask:</strong> Framework web minimalista.</li>
+      <li><strong>Django:</strong> Framework robusto, ideal para sistemas maiores e com painel administrativo.</li>
+      <li><strong>FastAPI:</strong> Framework moderno, focado em APIs rápidas com tipagem automática.</li>
+    </ul>
+  </div>
+</section>
+
+
+  </div>
+
+  <footer>
+    © 2025 - Curso de Python para Iniciantes. Desenvolvido por Luis Felipe.
+  </footer>
+
+  <button class="voltar-topo" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">Topo ↑</button>
+
+</body>
+</html>

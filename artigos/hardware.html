@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hardware - TechWorld</title>
+    <style>
+        /* Estilos melhorados para maior legibilidade e apelo visual */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-bottom: 5px solid #3498db;
+        }
+
+        header h1 {
+            font-size: 3.2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        section {
+            max-width: 1100px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .componente {
+            margin-bottom: 4rem;
+            padding: 3rem;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .componente:hover {
+            background-color: #f9f9f9;
+        }
+
+        .componente:last-child {
+            border-bottom: none;
+        }
+
+        .componente h2 {
+            font-size: 2.4rem;
+            margin-bottom: 1.8rem;
+            color: #2980b9;
+            border-bottom: 3px solid #3498db;
+            display: inline-block;
+            padding-bottom: 0.7rem;
+            font-weight: 600;
+        }
+
+        .componente img {
+            width: 100%;
+            max-width: 650px;
+            height: auto;
+            display: block;
+            margin: 2rem auto;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid #eee;
+        }
+
+        .componente img:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .descricao {
+            background-color: #f8fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            font-size: 1.18rem;
+            color: #333;
+            margin-top: 2rem;
+            line-height: 1.8;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #3498db;
+        }
+
+        .descricao strong {
+            color: #2c3e50;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1a252f 0%, #0e1419 100%);
+            color: #ecf0f1;
+            text-align: center;
+            padding: 2.5rem;
+            margin-top: 5rem;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Efeitos responsivos */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .componente {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Componentes de Hardware</h1>
+        <p>Conheça os elementos essenciais que compõem um computador</p>
+    </header>
+
+    <section>
+        <!-- Processador (CPU) -->
+        <div class="componente">
+            <h2>Processador (CPU)</h2>
+            <img src="img/cpu.jpeg" alt="Processador Intel Core i9">
+            <div class="descricao">
+                O <strong>processador</strong>, ou <strong>CPU</strong> (Unidade Central de Processamento), é o componente mais crítico de qualquer sistema. Funciona como o "cérebro" do computador, executando milhões de operações por segundo. Segundo a <a href="https://www.pcmag.com" target="_blank">PC Magazine</a>, os processadores modernos contêm milhares de milhões de transístores em poucos centímetros quadrados. 
+
+                As principais características a considerar são:
+                <ul>
+                    <li><strong>Núcleos:</strong> Processadores atuais variam de 2 a 64 núcleos (para estações de trabalho profissionais)</li>
+                    <li><strong>Clock:</strong> Medido em GHz, indica quantos ciclos por segundo o processador pode executar</li>
+                    <li><strong>Cache:</strong> Memória ultrarrápida integrada no processador</li>
+                </ul>
+
+                A <a href="https://www.intel.pt" target="_blank">Intel</a> e a <a href="https://www.amd.com/pt" target="_blank">AMD</a> são os dois principais fabricantes, com a AMD a ganhar terreno nos últimos anos com a arquitetura Zen.
+            </div>
+        </div>
+
+        <!-- Memória RAM -->
+        <div class="componente">
+            <h2>Memória RAM</h2>
+            <img src="img/ram.jpg" alt="Memória RAM DDR4">
+            <div class="descricao">
+                A <strong>memória RAM</strong> (Random Access Memory) é a memória de trabalho do sistema. Ao contrário do armazenamento permanente, a RAM é volátil - perde todos os dados quando o computador é desligado. 
+
+                Segundo a <a href="https://www.kingston.com/pt" target="_blank">Kingston Technology</a>, líder em fabrico de memórias:
+                <ul>
+                    <li><strong>DDR4</strong> (a mais comum atualmente) opera entre 2133MHz e 5100MHz</li>
+                    <li><strong>DDR5</strong> (a mais recente) começa em 4800MHz e pode ultrapassar os 8000MHz</li>
+                    <li>A <strong>latência</strong> (CL) é tão importante quanto a velocidade</li>
+                </ul>
+
+                Para uso geral, <strong>16GB</strong> são suficientes, mas para edição de vídeo ou jogos avançados recomenda-se <strong>32GB ou mais</strong>. A quantidade necessária depende muito do sistema operativo e aplicações utilizadas.
+            </div>
+        </div>
+
+        <!-- Placa-Mãe -->
+        <div class="componente">
+            <h2>Placa-Mãe</h2>
+            <img src="img/placa-mae.jpg" alt="Placa-mãe ASUS ROG">
+            <div class="descricao">
+                A <strong>placa-mãe</strong> é a base que interliga todos os componentes. Escolher a placa certa é crucial porque determina que outros componentes poderá usar no futuro.
+
+                Principais aspectos técnicos:
+                <ul>
+                    <li><strong>Factor de forma:</strong> ATX (standard), microATX (mais pequena), mini-ITX (muito compacta)</li>
+                    <li><strong>Soquete:</strong> Deve ser compatível com o processador escolhido (ex: LGA1700 para Intel, AM5 para AMD)</li>
+                    <li><strong>Chipset:</strong> Controla as funcionalidades disponíveis (ex: Z790 para Intel, X670E para AMD)</li>
+                </ul>
+
+                Fabricantes reputados incluem <a href="https://www.asus.com/pt" target="_blank">ASUS</a>, <a href="https://www.msi.com" target="_blank">MSI</a> e <a href="https://www.gigabyte.com" target="_blank">GIGABYTE</a>. Uma boa placa-mãe deve ter dissipadores de calor eficientes, slots M.2 para SSDs rápidos e conectores robustos.
+            </div>
+        </div>
+
+        <!-- HD e SSD -->
+        <div class="componente">
+            <h2>Armazenamento: HDD e SSD</h2>
+            <img src="img/HDD-SSD.jpg" alt="Disco rígido e SSD">
+            <div class="descricao">
+                Os dispositivos de armazenamento guardam permanentemente os seus dados. Existem dois tipos principais:
+
+                <strong>HDD (Hard Disk Drive):</strong>
+                <ul>
+                    <li>Usam pratos magnéticos que giram a alta velocidade (5400rpm a 7200rpm)</li>
+                    <li>Mais baratos por GB de armazenamento</li>
+                    <li>Ideais para arquivo de grandes quantidades de dados</li>
+                </ul>
+
+                <strong>SSD (Solid State Drive):</strong>
+                <ul>
+                    <li>Não têm partes móveis, sendo mais rápidos e resistentes</li>
+                    <li>SSDs NVMe podem ser até 10x mais rápidos que SATA</li>
+                    <li>Consomem menos energia e são silenciosos</li>
+                </ul>
+
+                A <a href="https://www.tomshardware.com" target="_blank">Tom's Hardware</a> recomenda usar um SSD para o sistema operativo e programas, e um HDD para armazenamento massivo de ficheiros.
+            </div>
+        </div>
+
+        <!-- Placa Gráfica -->
+        <div class="componente">
+            <h2>Placa Gráfica (GPU)</h2>
+            <img src="img/gpu.jpg" alt="Placa gráfica NVIDIA RTX">
+            <div class="descricao">
+                A <strong>placa gráfica</strong> (GPU) é responsável por renderizar imagens no ecrã. Tornou-se essencial não só para jogos, mas também para edição de vídeo, renderização 3D e até aprendizagem automática.
+
+                Principais características:
+                <ul>
+                    <li><strong>VRAM:</strong> Memória dedicada (4GB no mínimo para jogos modernos)</li>
+                    <li><strong>Arquitetura:</strong> NVIDIA RTX (ray tracing) ou AMD RDNA</li>
+                    <li><strong>Saídas:</strong> HDMI, DisplayPort para monitores de alta resolução</li>
+                </ul>
+
+                Segundo a <a href="https://www.nvidia.com/pt-pt/" target="_blank">NVIDIA</a>, as suas GPUs RTX oferecem ray tracing em tempo real, enquanto a <a href="https://www.amd.com/pt/graphics" target="_blank">AMD</a> foca no melhor desempenho por euro. Para jogos em 4K, recomenda-se pelo menos uma RTX 3080 ou RX 6800 XT.
+            </div>
+        </div>
+
+        <!-- Fonte de Alimentação -->
+        <div class="componente">
+            <h2>Fonte de Alimentação</h2>
+            <img src="img/Fonte-de-alimentacao-001.png" alt="Fonte de alimentação Corsair">
+            <div class="descricao">
+                A <strong>fonte de alimentação</strong> (PSU) é frequentemente negligenciada, mas é vital para a estabilidade e longevidade do sistema. Uma fonte de má qualidade pode danificar outros componentes.
+
+                Aspectos importantes:
+                <ul>
+                    <li><strong>Potência:</strong> 500W-850W para a maioria dos sistemas (mais para configurações high-end)</li>
+                    <li><strong>Eficiência:</strong> Certificação 80 Plus (Bronze, Silver, Gold, Platinum, Titanium)</li>
+                    <li><strong>Modularidade:</strong> Fontes modulares permitem ligar apenas os cabos necessários</li>
+                </ul>
+
+                Fabricantes de confiança incluem <a href="https://www.corsair.com" target="_blank">Corsair</a>, <a href="https://www.seasonic.com" target="_blank">Seasonic</a> e <a href="https://www.evga.com" target="_blank">EVGA</a>. A <a href="https://www.cybenetics.com" target="_blank">Cybenetics</a> oferece certificações ainda mais rigorosas que a 80 Plus.
+            </div>
+        </div>
+
+        <!-- Gabinete -->
+        <div class="componente">
+            <h2>Gabinete</h2>
+            <img src="img/gabinete.jpg" alt="Gabinete NZXT H510">
+            <div class="descricao">
+                O <strong>gabinete</strong> aloja e protege todos os componentes. Um bom gabinete melhora o arrefecimento, reduz o ruído e facilita a construção/manutenção.
+
+                Características a considerar:
+                <ul>
+                    <li><strong>Tamanho:</strong> Full-tower (grande), mid-tower (mais comum), mini-ITX (compacto)</li>
+                    <li><strong>Airflow:</strong> Espaço para ventoinhas e radiadores</li>
+                    <li><strong>Gestão de cabos:</strong> Orifícios e espaços para esconder cabos</li>
+                    <li><strong>Materiais:</strong> Aço, alumínio ou plástico (equilíbrio entre peso e preço)</li>
+                </ul>
+
+                Marcas premium como <a href="https://www.nzxt.com" target="_blank">NZXT</a>, <a href="https://www.lian-li.com" target="_blank">Lian Li</a> e <a href="https://www.fractal-design.com" target="_blank">Fractal Design</a> oferecem gabinetes com excelente construção e design. Um gabinete com filtros de poeira prolonga a vida dos componentes.
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2024 TechWorld. Todos os direitos reservados. | Fontes: PCMag, Tom's Hardware, fabricantes oficiais
+    </footer>
+</body>
+</html>

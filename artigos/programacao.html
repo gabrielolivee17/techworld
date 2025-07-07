@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigos de Programação</title>
+    <style>
+        :root {
+            --cor-principal: #2c3e50;
+            --cor-secundaria: #3498db;
+            --cor-destaque: #e74c3c;
+            --cor-clara: #ecf0f1;
+            --cor-escura: #1a252f;
+            --cor-texto: #333;
+            --cor-sombra: rgba(0, 0, 0, 0.1);
+            --transicao-padrao: 0.3s ease;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--cor-clara);
+            color: var(--cor-texto);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--cor-principal);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 8px var(--cor-sombra);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            color: #ccc;
+        }
+
+        .intro-artigo {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .intro-artigo h2 {
+            font-size: 2rem;
+            color: var(--cor-principal);
+            margin-bottom: 1rem;
+        }
+
+        .intro-artigo p {
+            font-size: 1.1rem;
+        }
+
+        .caixa-artigo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .caixa-artigo {
+            display: block;
+            text-decoration: none;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 20px var(--cor-sombra);
+            transition: transform var(--transicao-padrao), box-shadow var(--transicao-padrao), background var(--transicao-padrao);
+            color: var(--cor-texto);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .caixa-artigo::before {
+            content: '';
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            background: linear-gradient(135deg, var(--cor-secundaria), var(--cor-principal));
+            top: -100%;
+            left: -10%;
+            transform: rotate(10deg);
+            transition: top var(--transicao-padrao);
+            z-index: 0;
+            opacity: 0.1;
+        }
+
+        .caixa-artigo:hover::before {
+            top: 0;
+        }
+
+        .caixa-artigo:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+            background: var(--cor-clara);
+        }
+
+        .icone-artigo {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--cor-secundaria);
+            z-index: 1;
+            position: relative;
+        }
+
+        .icone-artigo img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .caixa-artigo h3 {
+            margin-bottom: 0.8rem;
+            color: var(--cor-principal);
+            z-index: 1;
+            position: relative;
+        }
+
+        .caixa-artigo p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--cor-texto);
+            z-index: 1;
+            position: relative;
+        }
+
+        footer {
+            background-color: var(--cor-escura);
+            color: #ccc;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Artigos de Programação</h1>
+        <p>Explore o mundo das linguagens que movem o desenvolvimento moderno</p>
+    </header>
+
+    <section class="intro-artigo">
+        <h2>Por que aprender linguagens de programação?</h2>
+        <p>
+            As linguagens de programação são a base da tecnologia moderna. Aprender a programar te dá o poder de criar soluções, entender como softwares funcionam e abrir portas para uma carreira promissora. Abaixo, você encontrará artigos introdutórios sobre três das linguagens mais utilizadas no mercado: Python, JavaScript e Java.
+        </p>
+    </section>
+
+
+    <section class="caixa-artigo-grid">
+        <!-- Python -->
+        <a href="linguagens_bp/python.html" class="caixa-artigo">
+            <div class="icone-artigo">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Logo Python">
+            </div>
+            <h3>Introdução ao Python</h3>
+            <p>Aprenda os fundamentos de uma das linguagens mais populares e versáteis da atualidade.</p>
+        </a>
+
+        <!-- JavaScript -->
+        <a href="linguagens_bp/javaScript.html" class="caixa-artigo">
+            <div class="icone-artigo">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="Logo JavaScript">
+            </div>
+            <h3>JavaScript Moderno</h3>
+            <p>Descubra como tornar páginas web interativas com JavaScript e suas funcionalidades modernas.</p>
+        </a>
+
+        <!-- Java -->
+        <a href="linguagens_bp/java.html" class="caixa-artigo">
+            <div class="icone-artigo">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Logo Java">
+            </div>
+            <h3>Programando em Java</h3>
+            <p>Explore os conceitos fundamentais do Java, uma linguagem robusta e orientada a objetos.</p>
+        </a>
+    </section>
+
+    <footer>
+        © 2025 - Criado por Luis Felipe e Gabriel Barbosa. Todos os direitos reservados. | Contato: felpxrodrigues@gmail.com
+    </footer>
+
+</body>
+</html>

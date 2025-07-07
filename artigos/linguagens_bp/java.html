@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guia Completo de Java</title>
+  <style>
+    :root {
+      --cor-principal: #b22222; /* vermelho escuro estilizado */
+      --cor-secundaria: #e64a19; /* laranja queimado vibrante */
+      --cor-destaque: #ff7043; /* laranja mais suave */
+      --cor-clara: #f4f4f4;
+      --cor-escura: #212121;
+      --cor-texto: #2c2c2c;
+      --cor-sombra: rgba(0, 0, 0, 0.1);
+      --transicao-padrao: 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--cor-clara);
+      color: var(--cor-texto);
+      line-height: 1.6;
+    }
+
+    header {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Java-Logo.svg/1920px-Java-Logo.svg.png') center/contain no-repeat;
+      background-color: var(--cor-escura);
+      background-blend-mode: multiply;
+      background-size: 300px;
+      background-position: center 40px;
+      background-repeat: no-repeat;
+      color: white;
+      padding: 6rem 2rem 12rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: #e0e0e0;
+    }
+
+    .navegacao ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 1rem 0;
+      margin: 0;
+    }
+
+    .navegacao a {
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .navegacao a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background-color: var(--cor-secundaria);
+      transition: width 0.3s ease;
+    }
+
+    .navegacao a:hover {
+      color: var(--cor-secundaria);
+    }
+
+    .navegacao a:hover::after {
+      width: 100%;
+    }
+
+    .conteudo {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    h2 {
+      color: #f89820;
+      margin-bottom: 1rem;
+    }
+
+    .codigo-bloco {
+      background-color: #263238;
+      color: #ffe0b2;
+      padding: 1rem;
+      border-left: 5px solid var(--cor-secundaria);
+      font-family: Consolas, monospace;
+      white-space: pre-wrap;
+      border-radius: 8px;
+      margin-top: 0.5rem;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 1rem auto;
+      border-radius: 10px;
+    }
+
+    footer {
+      background-color: var(--cor-escura);
+      color: #ccc;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.95rem;
+      position: relative;
+    }
+
+    .voltar-topo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--cor-secundaria);
+      color: #fff;
+      padding: 0.8rem 1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: background 0.3s;
+    }
+
+    .voltar-topo:hover {
+      background: var(--cor-destaque);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Guia Completo de Java</h1>
+    <p>Explore a linguagem robusta e multiplataforma que domina o mundo corporativo e acadêmico.</p>
+    <nav class="navegacao">
+      <ul>
+        <li><a href="#historia">História</a></li>
+        <li><a href="#sintaxe">Sintaxe</a></li>
+        <li><a href="#conceitos">Conceitos</a></li>
+        <li><a href="#exemplos">Exemplos</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#avancado">Avançado</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="conteudo">
+    <section id="historia">
+      <h2>História do Java</h2>
+      <p>Java foi criado pela equipe da Sun Microsystems, liderada por <strong>James Gosling</strong>, em 1995. A ideia era desenvolver uma linguagem orientada a objetos, segura, multiplataforma e com bom desempenho para dispositivos embarcados, como TVs inteligentes e aparelhos eletrônicos.</p>
+      <p>O lema "write once, run anywhere" (escreva uma vez, rode em qualquer lugar) definiu a proposta da linguagem: portabilidade. O código Java é compilado para bytecode, que é executado por uma máquina virtual (JVM), permitindo que o mesmo programa rode em qualquer sistema operacional com suporte à JVM.</p>
+      <p>Com o tempo, Java se tornou uma das linguagens mais populares do mundo, sendo amplamente usada em aplicações corporativas, sistemas bancários, Android, back-end web e muito mais. Em 2010, a Oracle adquiriu a Sun Microsystems e passou a manter o desenvolvimento do Java.</p>
+      <img src="https://usesthis.com/images/interviews/james.gosling/portrait.jpg" alt="James Gosling - Criador do Java">
+    </section>
+
+    <section id="sintaxe">
+      <h2>Sintaxe do Java</h2>
+      <p>A sintaxe do Java é fortemente tipada, baseada em blocos e muito estruturada. Um programa Java precisa estar dentro de uma classe, e o ponto de entrada é sempre o método <code>main()</code>.</p>
+      <ul>
+        <li><strong>Declaração de variáveis:</strong> precisa informar o tipo (ex: <code>int</code>, <code>String</code>, <code>boolean</code>)</li>
+        <li><strong>Classes e métodos:</strong> estruturas essenciais do paradigma orientado a objetos</li>
+        <li><strong>Modificadores:</strong> <code>public</code>, <code>private</code>, <code>static</code>, <code>final</code></li>
+        <li><strong>Compilação:</strong> Código Java (.java) é compilado em bytecode (.class) e executado pela JVM</li>
+      </ul>
+    </section>
+
+    <section id="conceitos">
+      <h2 style="color: #f89820;">Conceitos Fundamentais</h2>
+      <p>O Java é uma linguagem robusta, orientada a objetos e fortemente tipada. A seguir, vamos explorar cada um dos seus conceitos-chave com exemplos práticos e explicações didáticas.</p>
+
+      <h3 style="color: #5382a1;">1. JVM (Java Virtual Machine)</h3>
+      <p>A JVM é a máquina virtual que executa os programas Java. Ela permite que um programa Java seja compilado uma vez e executado em qualquer sistema operacional que tenha uma JVM instalada.</p>
+      <img src="img/JvmSpec7.png" width="600">
+      <p><strong>Como funciona:</strong> O código-fonte (.java) é compilado em bytecode (.class), que é interpretado pela JVM em tempo de execução.</p>
+
+      <h3 style="color: #5382a1;">2. POO - Programação Orientada a Objetos</h3>
+      <p>Java é 100% orientado a objetos. Isso significa que tudo é feito a partir de classes e objetos. Os quatro pilares da POO são:</p>
+      <ul>
+        <li><strong>Encapsulamento:</strong> protege os dados da classe usando modificadores de acesso (<code>private</code>, <code>public</code>)</li>
+        <li><strong>Herança:</strong> permite que uma classe herde propriedades e comportamentos de outra</li>
+        <li><strong>Polimorfismo:</strong> objetos podem assumir muitas formas (ex: sobrescrita de métodos)</li>
+        <li><strong>Abstração:</strong> expõe apenas o essencial ao usuário</li>
+      </ul>
+      <div class="codigo-bloco">
+class Animal {
+  void fazerSom() {
+    System.out.println("Som genérico");
+  }
+}
+
+class Cachorro extends Animal {
+  void fazerSom() {
+    System.out.println("Latido");
+  }
+}
+
+Animal a = new Cachorro();
+a.fazerSom(); // Saída: Latido
+      </div>
+
+      <h3 style="color: #5382a1;">3. Tipos Primitivos e Referência</h3>
+      <p>Em Java, temos dois grupos principais de tipos de dados:</p>
+      <ul>
+        <li><strong>Primitivos:</strong> <code>int</code>, <code>double</code>, <code>boolean</code>, <code>char</code>, etc.</li>
+        <li><strong>Referência:</strong> Objetos, como <code>String</code>, arrays e instâncias de classes</li>
+      </ul>
+      <div class="codigo-bloco">
+int idade = 25; // tipo primitivo
+String nome = "Carlos"; // tipo de referência (objeto)
+      </div>
+
+      <h3 style="color: #5382a1;">4. Modificadores de Acesso</h3>
+      <p>Controlam quem pode acessar membros (variáveis ou métodos) de uma classe.</p>
+      <ul>
+        <li><code>public</code>: acessível de qualquer lugar</li>
+        <li><code>private</code>: acessível apenas dentro da própria classe</li>
+        <li><code>protected</code>: acessível dentro do mesmo pacote ou por herança</li>
+        <li>sem modificador (package-private): acessível apenas no mesmo pacote</li>
+      </ul>
+
+      <h3 style="color: #5382a1;">5. Compilação e Execução</h3>
+      <p>O ciclo de vida de um programa Java:</p>
+      <ol>
+        <li>Você escreve o código em um arquivo <code>.java</code></li>
+        <li>Compila com <code>javac MeuPrograma.java</code> para gerar um <code>.class</code></li>
+        <li>Executa com <code>java MeuPrograma</code></li>
+      </ol>
+      <img src="https://i.imgur.com/nYqK9pF.png" alt="Fluxo de Compilação Java" width="600">
+      <p>Esse processo garante portabilidade e segurança no ecossistema Java.</p>
+
+      <h3 style="color: #5382a1;">6. Tratamento de Exceções</h3>
+      <p>Em Java, erros em tempo de execução são tratados com blocos <code>try-catch</code>. Isso evita falhas inesperadas no programa.</p>
+      <div class="codigo-bloco">
+try {
+  int resultado = 10 / 0;
+} catch (ArithmeticException e) {
+  System.out.println("Erro: divisão por zero!");
+} finally {
+  System.out.println("Finalizando o bloco.");
+}
+      </div>
+      <p>O bloco <code>finally</code> sempre será executado, mesmo se houver erro.</p>
+    </section>
+
+    <section id="exemplos">
+      <h2>Exemplos de Código Java</h2>
+
+      <div class="exemplo">
+        <h3>1. Hello World</h3>
+        <p>O exemplo mais básico em Java — imprimir uma mensagem na tela:</p>
+        <div class="codigo-bloco">
+public class Main {
+  public static void main(String[] args) {
+    System.out.println("Olá, mundo!");
+  }
+}
+        </div>
+      </div>
+
+      <div class="exemplo">
+        <h3>2. Variáveis e tipos</h3>
+        <p>Declaração de variáveis com tipo explícito:</p>
+        <div class="codigo-bloco">
+int idade = 20;
+String nome = "Lucas";
+double altura = 1.75;
+System.out.println(nome + " tem " + idade + " anos e " + altura + "m de altura.");
+        </div>
+      </div>
+
+      <div class="exemplo">
+        <h3>3. Condicionais</h3>
+        <p>Decisões baseadas em condições lógicas:</p>
+        <div class="codigo-bloco">
+int nota = 7;
+if (nota >= 6) {
+  System.out.println("Aprovado!");
+} else {
+  System.out.println("Reprovado.");
+}
+        </div>
+      </div>
+
+      <div class="exemplo">
+        <h3>4. Laços de repetição</h3>
+        <p>Repetições com <code>for</code>:</p>
+        <div class="codigo-bloco">
+for (int i = 1; i <= 5; i++) {
+  System.out.println("Passo " + i);
+}
+        </div>
+      </div>
+
+      <div class="exemplo">
+        <h3>5. Orientação a Objetos</h3>
+        <p>Criação de uma classe com método:</p>
+        <div class="codigo-bloco">
+public class Pessoa {
+  String nome;
+
+  Pessoa(String nome) {
+    this.nome = nome;
+  }
+
+  void falar() {
+    System.out.println("Olá, eu sou " + nome);
+  }
+}
+
+Pessoa p = new Pessoa("Joana");
+p.falar();
+        </div>
+      </div>
+
+      <div class="exemplo">
+        <h3>6. Tratamento de Exceções</h3>
+        <p>Evita que o programa trave em caso de erro:</p>
+        <div class="codigo-bloco">
+try {
+  int resultado = 10 / 0;
+} catch (ArithmeticException e) {
+  System.out.println("Erro: divisão por zero!");
+}
+        </div>
+      </div>
+
+    </section>
+
+    <section id="roadmap">
+      <h2>Roadmap para Aprender Java</h2>
+      <p>Java é uma linguagem poderosa e versátil usada em diversas áreas: aplicações corporativas, back-end, mobile (Android) e sistemas de larga escala. Veja abaixo um guia completo para dominar Java:</p>
+      <ol>
+        <li><strong>Fundamentos:</strong> Sintaxe, variáveis, operadores, estruturas de controle, funções e métodos</li>
+        <li><strong>POO (Programação Orientada a Objetos):</strong> Classes, objetos, herança, encapsulamento, polimorfismo</li>
+        <li><strong>Tratamento de exceções:</strong> Blocos <code>try/catch</code>, <code>throws</code>, criação de exceções personalizadas</li>
+        <li><strong>Coleções:</strong> Listas, Conjuntos, Mapas (ArrayList, HashSet, HashMap, etc.)</li>
+        <li><strong>Manipulação de arquivos:</strong> Input/Output Streams, leitura e escrita com <code>File</code>, <code>BufferedReader</code></li>
+        <li><strong>Interfaces gráficas:</strong> Swing e JavaFX</li>
+        <li><strong>Threads e Concorrência:</strong> Programação paralela com <code>Runnable</code>, <code>Thread</code>, <code>ExecutorService</code></li>
+        <li><strong>Banco de Dados:</strong> Conexão com MySQL/PostgreSQL usando JDBC</li>
+        <li><strong>APIs modernas:</strong> Lambda Expressions, Streams, Optional, Date/Time API</li>
+        <li><strong>Desenvolvimento Web:</strong> Servlets, JSP, Spring Boot e REST APIs</li>
+      </ol>
+    </section>
+
+    <section id="avancado">
+      <h2>Tópicos Avançados</h2>
+      <p>Dominar Java também envolve aprender conceitos avançados e frameworks modernos:</p>
+      <ul>
+        <li><strong>Spring Boot:</strong> Criação rápida de APIs RESTful e aplicações robustas com segurança integrada</li>
+        <li><strong>Hibernate e JPA:</strong> Mapeamento objeto-relacional para persistência de dados</li>
+        <li><strong>Microserviços:</strong> Arquitetura distribuída com Spring Cloud, Docker e Kubernetes</li>
+        <li><strong>Testes Automatizados:</strong> JUnit, Mockito, TestNG</li>
+        <li><strong>Segurança:</strong> Autenticação e autorização com Spring Security e JWT</li>
+        <li><strong>Design Patterns:</strong> Singleton, Factory, Observer, Strategy, Builder, Adapter</li>
+        <li><strong>Desenvolvimento Android:</strong> Java como linguagem nativa para apps móveis</li>
+      </ul>
+    </section>
+
+    <section id="conclusao">
+      <h2>Conclusão</h2>
+      <p>Java continua sendo uma das linguagens mais utilizadas no mundo corporativo. Sua performance, escalabilidade e comunidade forte fazem dela uma excelente escolha para quem busca estabilidade e empregabilidade no mercado de software.</p>
+      <p>Continue estudando, aplicando os conceitos em projetos reais e explorando novas tecnologias como Spring, Kafka, Docker e testes unitários.</p>
+      <p>Seja para criar apps Android, sistemas bancários ou servidores web, Java estará presente em muitos desafios do seu futuro como desenvolvedor.</p>
+    </section>
+
+  </div>
+
+  <footer>
+    © 2025 - Guia de Java para Desenvolvedores. Criado por Luis Felipe.
+  </footer>
+
+  <button class="voltar-topo" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">Topo ↑</button>
+
+</body>
+</html>
